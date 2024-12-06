@@ -1,0 +1,34 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I./include",
+      "-c",
+      "-o",
+      "obj/chip.o",
+      "src/chip.c"
+    ],
+    "directory": "/Users/daniel/Projects/ccpu",
+    "file": "/Users/daniel/Projects/ccpu/src/chip.c",
+    "output": "/Users/daniel/Projects/ccpu/obj/chip.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I./include",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.c"
+    ],
+    "directory": "/Users/daniel/Projects/ccpu",
+    "file": "/Users/daniel/Projects/ccpu/src/main.c",
+    "output": "/Users/daniel/Projects/ccpu/obj/main.o"
+  }
+]
