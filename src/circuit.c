@@ -18,6 +18,7 @@ void circuit_register_node(circuit_t *circuit, node_t *node) {
   circuit->registered_count++;
 }
 
+
 void circuit_update_nodes(circuit_t *circuit) {
 
   bool updated = false;
@@ -29,5 +30,4 @@ void circuit_update_nodes(circuit_t *circuit) {
       }
     }
   }while (updated);
-
 }
