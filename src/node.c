@@ -3,16 +3,16 @@
 #include "node.h"
 #include "common.h"
 
-node_t *node_create() {
+ccpu_node_t *node_create() {
 
-  node_t *node = malloc(sizeof(node_t));
+  ccpu_node_t *node = malloc(sizeof(ccpu_node_t));
   node->registered_count = 0;
   node->state = LOW;
 
   return node;
 }
 
-void node_register_chip(node_t *node, chip_t *chip, unsigned int pin_number) {
+void node_register_chip(ccpu_node_t *node, ccpu_chip_t *chip, unsigned int pin_number) {
 
   node->chips[node->registered_count] = chip;
   node->pins[node->registered_count] = pin_number;
@@ -20,7 +20,7 @@ void node_register_chip(node_t *node, chip_t *chip, unsigned int pin_number) {
 
 }
 
-bool node_update(node_t *node) {
+bool node_update(ccpu_node_t *node) {
 
   bool updated = false;
 

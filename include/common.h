@@ -5,11 +5,10 @@
 
 #define LOW 0
 #define HIGH 1
-typedef bool state_t;
+typedef bool ccpu_state_t;
 
 #define INPUT 0
 #define OUTPUT 1
-typedef bool iodesig_t;
 
 #define CHIP_MAX_PINS 20
 #define CHIP_MAX_NAME_LENGTH 127

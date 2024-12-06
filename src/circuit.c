@@ -3,9 +3,9 @@
 
 
 
-circuit_t *circuit_create() {
+ccpu_circuit_t *circuit_create() {
 
-  circuit_t *circuit = malloc(sizeof(circuit_t));
+  ccpu_circuit_t *circuit = malloc(sizeof(ccpu_circuit_t));
 
   circuit->registered_count = 0;
 
@@ -13,13 +13,13 @@ circuit_t *circuit_create() {
 
 }
 
-void circuit_register_node(circuit_t *circuit, node_t *node) {
+void circuit_register_node(ccpu_circuit_t *circuit, ccpu_node_t *node) {
   circuit->nodes[circuit->registered_count] = node;
   circuit->registered_count++;
 }
 
 
-void circuit_update_nodes(circuit_t *circuit) {
+void circuit_update_nodes(ccpu_circuit_t *circuit) {
 
   bool updated = false;
   do {

@@ -2,7 +2,7 @@
 #include <string.h>
 #include "chips/chip_74LS74.h"
 
-void chip_74LS74_update(chip_t *chip) {
+void chip_74LS74_update(ccpu_chip_t *chip) {
 
   // first flip flop
   if(chip->pins_state[3] == HIGH) {
@@ -36,10 +36,10 @@ void chip_74LS74_update(chip_t *chip) {
 
 }
 
-chip_t *chip_74LS74_create(char* name) {
+ccpu_chip_t *chip_74LS74_create(char* name) {
 
-  chip_t *chip = NULL;
-  chip = malloc(sizeof(chip_t));
+  ccpu_chip_t *chip = NULL;
+  chip = malloc(sizeof(ccpu_chip_t));
   if(chip == NULL) {
     return NULL;
   }

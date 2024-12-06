@@ -4,17 +4,17 @@
 #include "common.h"
 #include "node.h"
 
-typedef struct circuit_s {
+typedef struct ccpu_circuit_s {
 
-  node_t *nodes[CIRCUIT_MAX_NODES];
+  ccpu_node_t *nodes[CIRCUIT_MAX_NODES];
   unsigned int registered_count;
 
-} circuit_t;
+} ccpu_circuit_t;
 
-circuit_t *circuit_create();
+ccpu_circuit_t *circuit_create();
 
-void circuit_register_node(circuit_t *circuit, node_t *node);
-void circuit_update_nodes(circuit_t *circuit);
+void circuit_register_node(ccpu_circuit_t *circuit, ccpu_node_t *node);
+void circuit_update_nodes(ccpu_circuit_t *circuit);
 
 
 

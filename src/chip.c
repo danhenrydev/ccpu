@@ -3,7 +3,7 @@
 #include "chip.h"
 
 
-void chip_debug_dump(chip_t *chip) {
+void chip_debug_dump(ccpu_chip_t *chip) {
   
   printf("Chip %s is a %s with %d pins total\n", chip->name, chip->type, chip->pin_count);
   printf("--------------------\n");

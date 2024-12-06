@@ -2,10 +2,9 @@
 #define CHIP_H
 
 #include "common.h"
-#include <stdbool.h>
 
-struct chip_s;
-typedef void (*chip_update_fn_t)(struct chip_s *chip);
+struct ccpu_chip_s;
+typedef void (*chip_update_fn_t)(struct ccpu_chip_s *chip);
 
 /** @brief Represents a chip with pins and update functionality
  *  @details Contains chip type, name, pin array, pin count, pin designations
@@ -18,19 +17,18 @@ typedef void (*chip_update_fn_t)(struct chip_s *chip);
  *  @var chip_s::pin_designation Array indicating pin input/output designation
  *  @var chip_s::update Function pointer for updating chip state
  */
-typedef struct chip_s {
+typedef struct ccpu_chip_s {
 
   char type[CHIP_MAX_NAME_LENGTH];
   char name[CHIP_MAX_NAME_LENGTH];
 
-  state_t pins_state[CHIP_MAX_PINS];
+  ccpu_state_t pins_state[CHIP_MAX_PINS];
   unsigned int pin_count;
-  iodesig_t pin_designation[CHIP_MAX_PINS];
+  bool pin_designation[CHIP_MAX_PINS];
   chip_update_fn_t update;
 
-} chip_t;
+} ccpu_chip_t;
 
-void chip_debug_dump(chip_t *chip);
+void chip_debug_dump(ccpu_chip_t *chip);
 
 #endif
-

@@ -12,8 +12,8 @@
  * @param name Unique identifier string for this chip instance
  * @return chip_t* Pointer to the newly created chip instance, or NULL if creation fails
  */
-chip_t *chip_7400_create(char *name);
-void chip_7400_update(chip_t *chip);
+ccpu_chip_t *chip_7400_create(char *name);
+void chip_7400_update(ccpu_chip_t *chip);
 
 
 #endif // !CHIP_7400_H

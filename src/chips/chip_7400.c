@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void chip_7400_update(chip_t *chip) {
+void chip_7400_update(ccpu_chip_t *chip) {
 
   chip->pins_state[3] = !(chip->pins_state[1] && chip->pins_state[2]);
   chip->pins_state[5] = !(chip->pins_state[6] && chip->pins_state[7]);
@@ -12,9 +12,9 @@ void chip_7400_update(chip_t *chip) {
   
 }
 
-chip_t *chip_7400_create(char *name) {
+ccpu_chip_t *chip_7400_create(char *name) {
 
-  chip_t *chip = malloc(sizeof(chip_t));
+  ccpu_chip_t *chip = malloc(sizeof(ccpu_chip_t));
   strcpy(chip->type, "7400 - Quad 2 input NAND gates");
   strcpy(chip->name, name);
   chip->pin_count = 14;

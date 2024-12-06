@@ -18,19 +18,19 @@
  * @var pins Array of pin numbers corresponding to each connected chip
  * @var registered_count Number of connections currently registered to this node
  */
-typedef struct node_s {
+typedef struct ccpu_node_s {
 
-  state_t state;
+  ccpu_state_t state;
 
-  chip_t *chips[NODE_MAX_CONNECTIONS];
+  ccpu_chip_t *chips[NODE_MAX_CONNECTIONS];
   unsigned int pins[NODE_MAX_CONNECTIONS];
   unsigned int registered_count;
 
-} node_t;
+} ccpu_node_t;
 
-node_t *node_create();
-void node_register_chip(node_t *node, chip_t *chip, unsigned int pin_number);
-bool node_update(node_t *node);
+ccpu_node_t *node_create();
+void node_register_chip(ccpu_node_t *node, ccpu_chip_t *chip, unsigned int pin_number);
+bool node_update(ccpu_node_t *node);
 
 
 #endif // !NODE_H
