@@ -28,8 +28,38 @@ typedef struct ccpu_node_s {
 
 } ccpu_node_t;
 
+/**
+ * @brief Creates a new node instance
+ *
+ * Allocates and initializes a new node structure with default values.
+ * The node starts with no connections and an undefined state.
+ * 
+ * @return Pointer to the newly created node, or NULL if allocation fails
+ */
 ccpu_node_t *node_create();
+
+/**
+ * @brief Registers a chip connection to this node
+ * 
+ * Associates a chip's pin with this node, allowing the node to track
+ * and update the connected components. The connection is added to the
+ * node's internal connection arrays.
+ * 
+ * @param node Pointer to the node structure
+ * @param chip Pointer to the chip to connect
+ * @param pin_number The pin number on the chip to connect
+ */
 void node_register_chip(ccpu_node_t *node, ccpu_chip_t *chip, unsigned int pin_number);
+
+/**
+ * @brief Updates the node's state based on connected components
+ * 
+ * Evaluates all connected chips and pins to determine the node's new state.
+ * Propagates state changes to all connected components.
+ * 
+ * @param node Pointer to the node to update
+ * @return true if the node's state changed, false otherwise
+ */
 bool node_update(ccpu_node_t *node);
 
 
