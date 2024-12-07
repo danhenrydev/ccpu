@@ -12,6 +12,7 @@
  */
 typedef struct ccpu_circuit_s {
 
+  char name[CIRCUIT_NAME_MAX_LENGTH];
   ccpu_node_t *nodes[CIRCUIT_MAX_NODES];
   unsigned int registered_count;
 
@@ -24,7 +25,7 @@ typedef struct ccpu_circuit_s {
  * 
  * @return Pointer to the newly created circuit structure
  */
-ccpu_circuit_t *circuit_create();
+ccpu_circuit_t *ccpu_circuit_create(char *name);
 
 /**
  * @brief Registers a node in the circuit
@@ -34,7 +35,7 @@ ccpu_circuit_t *circuit_create();
  * @param circuit Pointer to the circuit structure
  * @param node Pointer to the node to register
  */
-void circuit_register_node(ccpu_circuit_t *circuit, ccpu_node_t *node);
+void ccpu_circuit_register_node(ccpu_circuit_t *circuit, ccpu_node_t *node);
 
 /**
  * @brief Updates all nodes in the circuit
@@ -43,8 +44,7 @@ void circuit_register_node(ccpu_circuit_t *circuit, ccpu_node_t *node);
  * 
  * @param circuit Pointer to the circuit structure
  */
-void circuit_update_nodes(ccpu_circuit_t *circuit);
-
+void ccpu_circuit_update_nodes(ccpu_circuit_t *circuit);
 
 
 #endif // !CIRCUIT_H

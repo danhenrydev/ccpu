@@ -24,11 +24,75 @@
       "-I./include",
       "-c",
       "-o",
+      "obj/chips/chip_74LS00.o",
+      "src/chips/chip_74LS00.c"
+    ],
+    "directory": "/Users/daniel/Projects/ccpu",
+    "file": "/Users/daniel/Projects/ccpu/src/chips/chip_74LS00.c",
+    "output": "/Users/daniel/Projects/ccpu/obj/chips/chip_74LS00.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I./include",
+      "-c",
+      "-o",
+      "obj/chips/chip_74LS74.o",
+      "src/chips/chip_74LS74.c"
+    ],
+    "directory": "/Users/daniel/Projects/ccpu",
+    "file": "/Users/daniel/Projects/ccpu/src/chips/chip_74LS74.c",
+    "output": "/Users/daniel/Projects/ccpu/obj/chips/chip_74LS74.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I./include",
+      "-c",
+      "-o",
       "obj/main.o",
       "src/main.c"
     ],
     "directory": "/Users/daniel/Projects/ccpu",
     "file": "/Users/daniel/Projects/ccpu/src/main.c",
     "output": "/Users/daniel/Projects/ccpu/obj/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I./include",
+      "-c",
+      "-o",
+      "obj/circuit.o",
+      "src/circuit.c"
+    ],
+    "directory": "/Users/daniel/Projects/ccpu",
+    "file": "/Users/daniel/Projects/ccpu/src/circuit.c",
+    "output": "/Users/daniel/Projects/ccpu/obj/circuit.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-I./include",
+      "-c",
+      "-o",
+      "obj/node.o",
+      "src/node.c"
+    ],
+    "directory": "/Users/daniel/Projects/ccpu",
+    "file": "/Users/daniel/Projects/ccpu/src/node.c",
+    "output": "/Users/daniel/Projects/ccpu/obj/node.o"
   }
 ]

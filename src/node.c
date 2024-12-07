@@ -1,62 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "node.h"
+#include "chip.h"
 #include "common.h"
 
-ccpu_node_t *node_create() {
+ccpu_node_t *ccpu_node_create(char *name) {
 
   ccpu_node_t *node = malloc(sizeof(ccpu_node_t));
+  strcpy(node->name, name);
   node->registered_count = 0;
   node->state = LOW;
 
   return node;
 }
 
-void node_register_chip(ccpu_node_t *node, ccpu_chip_t *chip, unsigned int pin_number) {
+void ccpu_node_register_pin(ccpu_node_t *node, ccpu_pin_t *pin) {
 
-  node->chips[node->registered_count] = chip;
-  node->pins[node->registered_count] = pin_number;
+  node->pins[node->registered_count] = pin;
   node->registered_count++;
 
 }
 
-bool node_update(ccpu_node_t *node) {
+bool ccpu_node_update(ccpu_node_t *node) {
 
-  bool updated = false;
-
-  bool set_high = false;
+  node->state = LOW;
   for(size_t i = 0; i < node->registered_count; i++) {
-    if(node->chips[i]->pin_designation[node->pins[i]] == OUTPUT && node->chips[i]->pins_state[node->pins[i]] == HIGH) {
-      set_high = true;
-    }
-  }
-
-  if(set_high) {
-    if(node->state == LOW){
-      updated = true;
-    }
-    node->state = HIGH;
-  }else{
-    if(node->state == HIGH) {
-      updated = true;
-    }
-    node->state = LOW;
-  }
-
-  for(size_t i = 0; i < node->registered_count; i++) {
-    if(node->chips[i]->pin_designation[node->pins[i]] == INPUT)
-    {
-      if(node->chips[i]->pins_state[node->pins[i]] != node->state) {
-        updated = true;
-      }
-      node->chips[i]->pins_state[node->pins[i]] = node->state;
+    if((node->pins[i]->state == HIGH) && (node->pins[i]->pin_type == PIN_TYPE_OUTPUT)) {
+      node->state = HIGH;
     }
   }
 
   for(size_t i = 0; i < node->registered_count; i++) {
-    node->chips[i]->update(node->chips[i]);
+    if(node->pins[i]->pin_type == PIN_TYPE_INPUT) {
+      ccpu_pin_set_state(node->pins[i], node->state);
+    }
+    node->pins[i]->owning_chip->update(node->pins[i]->owning_chip);
   }
 
-  return updated;
+  return false;
+}
+
+
+void ccpu_node_debug_dump(ccpu_node_t *node) {
+  printf("Node %s is connected to %d pins and has a state of %d\n", node->name, node->registered_count, node->state);
 
 }

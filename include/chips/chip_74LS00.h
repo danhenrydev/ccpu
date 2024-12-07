@@ -22,7 +22,7 @@
  * @return ccpu_chip_t* Pointer to the newly created chip structure.
  *                      NULL if memory allocation fails.
  */
-ccpu_chip_t *chip_74LS00_create();
+ccpu_chip_t *chip_74LS00_create(char *name);
 
 void chip_74LS00_update(ccpu_chip_t *chip);
 

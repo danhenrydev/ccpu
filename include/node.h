@@ -21,9 +21,9 @@
 typedef struct ccpu_node_s {
 
   ccpu_state_t state;
+  char name[NODE_NAME_MAX_SIZE];
 
-  ccpu_chip_t *chips[NODE_MAX_CONNECTIONS];
-  unsigned int pins[NODE_MAX_CONNECTIONS];
+  ccpu_pin_t *pins[NODE_MAX_CONNECTIONS];
   unsigned int registered_count;
 
 } ccpu_node_t;
@@ -36,7 +36,7 @@ typedef struct ccpu_node_s {
  * 
  * @return Pointer to the newly created node, or NULL if allocation fails
  */
-ccpu_node_t *node_create();
+ccpu_node_t *ccpu_node_create(char *name);
 
 /**
  * @brief Registers a chip connection to this node
@@ -49,7 +49,7 @@ ccpu_node_t *node_create();
  * @param chip Pointer to the chip to connect
  * @param pin_number The pin number on the chip to connect
  */
-void node_register_chip(ccpu_node_t *node, ccpu_chip_t *chip, unsigned int pin_number);
+void ccpu_node_register_pin(ccpu_node_t *node, ccpu_pin_t *pin);
 
 /**
  * @brief Updates the node's state based on connected components
@@ -60,7 +60,10 @@ void node_register_chip(ccpu_node_t *node, ccpu_chip_t *chip, unsigned int pin_n
  * @param node Pointer to the node to update
  * @return true if the node's state changed, false otherwise
  */
-bool node_update(ccpu_node_t *node);
+bool ccpu_node_update(ccpu_node_t *node);
+
+
+void ccpu_node_debug_dump(ccpu_node_t *node);
 
 
 #endif // !NODE_H
